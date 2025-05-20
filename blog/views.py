@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,HttpResponse
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
@@ -11,6 +11,7 @@ from django.contrib.postgres.search import SearchVector
 from .forms import EmailPostForm, CommentForm, SearchForm
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
 from django.db.models import Q
+
 def post_share(request, post_id):
     # Извлечь пост по идентификатору id
     post = get_object_or_404(Post,
